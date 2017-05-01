@@ -1,0 +1,16 @@
+table,
+td {
+    border: 5px black solid;
+}
+.redBackground {
+    background: red;
+}
+.blueBackground {
+    background: blue;
+}
+.yellowBackground {
+    background: yellow;
+}
+.greenBackground {
+    background: green;
+}
