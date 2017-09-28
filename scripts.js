@@ -46,6 +46,9 @@ $(document).on("click", function(e) {
     }
 });
 
+/**
+ * Shows the welcome modal, and provides instructions for the user.
+ */
 function showWelcome() {
     $.confirm({
         title: "Welcome",
@@ -73,6 +76,9 @@ function showWelcome() {
     });
 }
 
+/**
+ * Plays a tone for a duration
+ */
 function playTone(tone, duration) {
     let time = duration / 1000;
     var oscillator = audioContext.createOscillator();
@@ -83,6 +89,10 @@ function playTone(tone, duration) {
     oscillator.stop(audioContext.currentTime + time);
 }
 
+/**
+ * Temporarily changes the color of a quadrant for a duration passed to the function
+ * This is used to show when a specific panel is clicked on, or selected by the computer
+ */
 function flashPanel(color, duration = 800) {
     if (
         color != "red" &&
@@ -119,6 +129,9 @@ function flashPanel(color, duration = 800) {
         }, duration / 2);
 }
 
+/**
+ * This plays the whole pattern for the human to memorize
+ */
 function playPattern(flashback = false) {
     var duration = 800; //duration of 1 flash
     for (var i = 0; i < pattern.length; i++) {
@@ -134,6 +147,9 @@ function playPattern(flashback = false) {
     }, duration * pattern.length);
 }
 
+/**
+ * This generates a random color sequence
+ */
 function generateRound(number) {
     var choices = ["blue", "red", "yellow", "green"];
     for (var i = 0; i < number; i++) {
@@ -143,6 +159,9 @@ function generateRound(number) {
     console.log(pattern);
 }
 
+/**
+ * This checks a user's input
+ */
 function checkResult() {
     for (var i = 0; i < pattern.length; i++) {
         if (pattern[i] != response[i]) {
@@ -152,6 +171,9 @@ function checkResult() {
     return true;
 }
 
+/**
+ * This runs a round of Simon
+ */
 function doRound() {
     // runs the next round of the current game
     $.alert({
@@ -166,6 +188,9 @@ function doRound() {
     });
 }
 
+/**
+ * This sets/resets the game variables 
+ */
 function beginGame() {
     // sets up a new game
     pattern = [];
@@ -179,6 +204,9 @@ window.addEventListener("resize", function() {
     height = window.innerHeight;
 });
 
+/**
+ * This shows the game over modal, and the player's final score
+ */
 function showGameOverModal() {
     //shows the game over modal and options of what to do next
     $.alert({
